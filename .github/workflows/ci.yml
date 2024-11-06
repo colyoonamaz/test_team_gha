@@ -1,0 +1,13 @@
+name: CI-CodeBuild 🚀
+
+on:
+  workflow_dispatch:
+
+jobs:
+  lint:
+    runs-on:
+      - codebuild-test-credentials-helper-${{ github.run_id }}-${{ github.run_attempt }}
+      - buildspec-override:true
+    steps:
+      - name: test command
+        run: echo "HELLO WORLD "
